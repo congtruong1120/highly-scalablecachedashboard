@@ -1,10 +1,15 @@
-function generateParenthesis(n) {
-  const result = [];
-  backtrack("", 0, 0);
-  return result;
-  function backtrack(current, open, close) {
-    if (current.length === 2 * n) result.push(current);
-    if (open < n) backtrack(current + "(", open + 1, close);
-    if (close < open) backtrack(current + ")", open, close + 1);
+function productExceptSelf(nums) {
+  const n = nums.length;
+  const result = new Array(n).fill(1);
+  let product = 1;
+  for (let i = 0; i < n; i++) {
+    result[i] *= product;
+    product *= nums[i];
   }
+  product = 1;
+  for (let i = n - 1; i >= 0; i--) {
+    result[i] *= product;
+    product *= nums[i];
+  }
+  return result;
 }
