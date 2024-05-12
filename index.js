@@ -1,6 +1,3 @@
-function isPalindrome(str) {
-  const reversed = str.split("").reverse().join("");
-  return str === reversed;
+function countConsonants(str) {
+  return str.match(/[bcdfghjklmnpqrstvwxyz]/gi).length;
 }
-
-console.log(isPalindrome("racecar")); // true
